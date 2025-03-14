@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kouassi Yohan | Journaliste Digital</title>
+    <style>
+        /* Variables et reset */
+        :root {
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --light: #f1f2f6;
+            --dark: #1e272e;
+            --accent: #ffa502;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .profile-img-placeholder {
+            font-size: 4rem;
+            color: var(--secondary);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Contenu principal */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .card:hover h3 {
+            color: white;
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .card:hover .card-icon {
+            color: white;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            position: relative;
+            width: 50%;
+            padding: 10px 40px;
+        }
+        
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent);
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -13px;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .right {
+                left: 0;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content fade-in">
+            <div class="profile-img">
+                <div class="profile-img-placeholder">KY</div>
+            </div>
+            <h1>Kouassi Yohan</h1>
+            <p class="title">Créateur de contenu sur TikTok | Journaliste d'actualité en temps réel</p>
+            <div class="nav">
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#content" class="nav-link">Contenu</a>
+                <a href="#values" class="nav-link">Valeurs</a>
+                <a href="#audience" class="nav-link">Audience</a>
+            </div>
+            <div class="social-icons">
+                <div class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section id="about" class="section fade-in">
+            <h2>Présentation</h2>
+            <p>
+                À seulement 25 ans, Kouassi Yohan s'est imposé comme une figure incontournable du journalisme digital. Passionné par l'information et les médias, il a su créer un format dynamique et percutant qui captive un large public, notamment la jeune génération avide de news instantanées.
+            </p>
+            <p>
+                Son approche novatrice combine la rigueur journalistique traditionnelle à la rapidité et l'accessibilité des réseaux sociaux, faisant de lui un pionnier de l'information en temps réel sur TikTok.
+            </p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="followers">0</div>
+                    <div class="stat-label">Abonnés</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="videos">0</div>
+                    <div class="stat-label">Vidéos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="likes">0</div>
+                    <div class="stat-label">Likes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="news">0</div>
+                    <div class="stat-label">Actualités couvertes</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="style" class="section fade-in">
+            <h2>Tonalité et style</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">📰</div>
+                    <h3>Sérieux et factuel</h3>
+                    <p>Une approche engageante et accessible de l'information.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Vulgarisation</h3>
+                    <p>L'actualité rendue compréhensible à tous les publics.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Ton direct</h3>
+                    <p>Un style rythmé et énergique, avec des punchlines marquantes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Réactivité</h3>
+                    <p>Une information instantanée sur les sujets qui comptent.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="content" class="section fade-in">
+            <h2>Format de contenu</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Vidéos courtes</h3>
+                    <p>Contenu percutant de 30 secondes à 1 minute pour maximiser l'engagement.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔴</div>
+                    <h3>Lives réguliers</h3>
+                    <p>Commentaires de l'actualité en direct avec interaction communautaire.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎤</div>
+                    <h3>Interviews express</h3>
+                    <p>Échanges avec des experts ou témoins clés pour enrichir les contenus.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧩</div>
+                    <h3>Décryptage rapide</h3>
+                    <p>Analyse concise des tendances et événements marquants.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="specialization" class="section fade-in">
+            <h2>Spécialisation</h2>
+            <p>
+                Kouassi couvre un large éventail de sujets avec une expertise particulière dans ces domaines:
+            </p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Actualité nationale et internationale</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👔</div>
+                    <h3>Politique et économie</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Faits divers</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Culture et technologie</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔥</div>
+                    <h3>Breaking news</h3>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3>Sujets viraux</h3>
+                </div>
+            </div>
+        </section>
+        
+        <section id="values" class="section fade-in">
+            <h2>Valeurs et objectifs</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Fiabilité et réactivité</h3>
+                    <p>Offrir une information vérifiée en un temps record.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Transparence</h3>
+                    <p>Privilégier une approche objective et factuelle.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔓</div>
+                    <h3>Accessibilité</h3>
+                    <p>Rendre l'actualité compréhensible à tous, même aux non-initiés.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Engagement citoyen</h3>
+                    <p>Encourager les jeunes à s'informer et à débattre sur les sujets de société.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="audience" class="section fade-in">
+            <h2>Audience cible</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3>Jeunes adultes</h3>
+                    <p>Étudiants et jeunes actifs de 18 à 35 ans.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Consommateurs d'actualité rapide</h3>
+                    <p>Personnes intéressées par l'information concise et percutante.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Utilisateurs de réseaux sociaux</h3>
+                    <p>Public adepte des plateformes sociales et des formats courts.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="strength" class="section fade-in">
+            <h2>Forces et différenciation</h2>
+            <div class="timeline">
+                <div class="container left">
+                    <div class="content">
+                        <h3>Rapidité d'exécution</h3>
+                        <p>Analyse instantanée des événements pour être toujours à la pointe de l'actualité.</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h3>Contenu interactif</h3>
+                        <p>Forte implication de la communauté dans la création et l'évolution des contenus.</p>
+                    </div>
+                </div>
+                <div class="container left">
+                    <div class="content">
+                        <h3>Présence multi-plateformes</h3>
+                        <p>Disponibilité sur TikTok, Instagram et Twitter pour une diffusion optimale.</p>
+                    </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                        <h3>Storytelling</h3>
+                        <p>Sens aigu de la narration pour rendre l'information captivante et mémorable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <h3>Contactez Kouassi Yohan</h3>
+            <p>Pour toute collaboration ou information</p>
+            <button class="contact-btn" id="contactBtn">Prendre contact</button>
+            <p class="copyright">&copy; 2025 - Tous droits réservés</p>
+        </div>
+    </footer>
+    
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contactez Kouassi Yohan</h2>
+            <form id="contactForm">
+                <div style="margin-bottom: 1rem;">
+                    <label for="name" style="display: block; margin-bottom: 0.5rem;">Nom</label>
+                    <input type="text" id="name" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid #ddd;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" id="email" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid #ddd;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+                    <textarea id="message" rows="5" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+                </div>
+                <button type="submit" class="contact-btn" style="width: 100%;">Envoyer</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Ajout des icônes Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    
+    <script>
+        // Animations au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            function checkScroll() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('fade-in');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Vérifier au chargement initial
+            
+            // Animation des compteurs
+            function animateCounter(id, target) {
+                const counter = document.getElementById(id);
+                const speed = 200; // Plus petit = plus rapide
+                let count = 0;
+                const interval = setInterval(() => {
+                    count += Math.ceil(target / speed);
+                    if (count >= target) {
+                        clearInterval(interval);
+                        counter.innerText = new Intl.NumberFormat('fr-FR').format(target);
+                    } else {
+                        counter.innerText = new Intl.NumberFormat('fr-FR').format(count);
+                    }
+                }, 1);
+            }
+            
+            // Simuler des statistiques pour la démo
+            setTimeout(() => {
+                animateCounter('followers', 1500000);
+                animateCounter('videos', 750);
+                animateCounter('likes', 25000000);
+                animateCounter('news', 1200);
+            }, 500);
+            
+            // Modal de contact
+            const modal = document.getElementById('contactModal');
+            const btn = document.getElementById('contactBtn');
+            const span = document.getElementsByClassName('close')[0];
+            const form = document.getElementById('contactForm');
+            
+            btn.onclick = function() {
+                modal.style.display = 'block';
+            }
+            
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+            
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                alert('Merci pour votre message ! Kouassi vous répondra dans les plus brefs délais.');
+                modal.style.display = 'none';
+                form.reset();
+            }
+            
+            // Navigation fluide
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
